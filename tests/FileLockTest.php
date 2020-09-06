@@ -19,4 +19,29 @@ final class FileLockTest extends TestCase{
         $this->assertInstanceOf(Proc\FileLock::class, $lock);
     }
 
+    /**
+     * @test
+     */
+    public function synchronization(){
+        Proc\FileLock::newInstace()->synchronize(function(){
+            $this->assertTrue(true, "Nothing went wrong.\n");
+        });
+    }
+
+    /**
+     * @test
+     */
+    public function nestedSynchronization(){
+        try{
+            $lock = Proc\FileLock::newInstace();
+            $lock->synchronize(function() use($lock){
+                $lock->synchronize(function(){
+                    $this->assertTrue(true, "Nothing went wrong.\n");
+                });
+            });
+        }catch(Exception $e){
+            $this->assertFalse(true, $e->getMessage());
+        }
+    }
+
 }
