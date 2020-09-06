@@ -32,7 +32,7 @@ class FileLock{
      * If path is not provider, the caller file path will be used.
      * @param string $path - A valid file path.
      */
-    public static function newInstace(string $path = null): self{
+    public static function newInstance(string $path = null): self{
         return new self($path);
     }
 

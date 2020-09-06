@@ -15,7 +15,7 @@ final class SemLockTest extends TestCase{
      * @test
      */
     public function instantiation(){
-        $lock = Proc\SemLock::newInstace();
+        $lock = Proc\SemLock::newInstance();
         $this->assertInstanceOf(Proc\SemLock::class, $lock);
     }
 
@@ -23,7 +23,7 @@ final class SemLockTest extends TestCase{
      * @test
      */
     public function synchronization(){
-        Proc\SemLock::newInstace()->synchronize(function(){
+        Proc\SemLock::newInstance()->synchronize(function(){
             $this->assertTrue(true, "Nothing went wrong.\n");
         });
     }
@@ -33,7 +33,7 @@ final class SemLockTest extends TestCase{
      */
     public function nestedSynchronization(){
         try{
-            $lock = Proc\SemLock::newInstace();
+            $lock = Proc\SemLock::newInstance();
             $lock->synchronize(function() use($lock){
                 $lock->synchronize(function(){
                     $this->assertTrue(true, "Nothing went wrong.\n");

@@ -15,7 +15,7 @@ final class FileLockTest extends TestCase{
      * @test
      */
     public function instantiation(){
-        $lock = Proc\FileLock::newInstace();
+        $lock = Proc\FileLock::newInstance();
         $this->assertInstanceOf(Proc\FileLock::class, $lock);
     }
 
@@ -23,7 +23,7 @@ final class FileLockTest extends TestCase{
      * @test
      */
     public function synchronization(){
-        Proc\FileLock::newInstace()->synchronize(function(){
+        Proc\FileLock::newInstance()->synchronize(function(){
             $this->assertTrue(true, "Nothing went wrong.\n");
         });
     }
@@ -33,7 +33,7 @@ final class FileLockTest extends TestCase{
      */
     public function nestedSynchronization(){
         try{
-            $lock = Proc\FileLock::newInstace();
+            $lock = Proc\FileLock::newInstance();
             $lock->synchronize(function() use($lock){
                 $lock->synchronize(function(){
                     $this->assertTrue(true, "Nothing went wrong.\n");
