@@ -10,7 +10,7 @@ which accepts an optional parameter as a path. If a lock is created with the sam
 inside the `synchronize()` call. Once a process ends it's `synchronize()` call, it releases the lock and another process takes the execution.
 
 If no path is provided, it gets the full path of the calling file.
-```
+```php
 <?php
 $lock = \ARG\Proc\FileLock::newInstance();
 $lock->synchronize(function(){
