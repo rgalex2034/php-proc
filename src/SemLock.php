@@ -1,6 +1,6 @@
 <?php
 
-namespace ARG\Proc;
+namespace Nyugodt\Proc;
 
 /**
  *  This class allow the use of lock at a file level.
