@@ -12,7 +12,7 @@ inside the `synchronize()` call. Once a process ends it's `synchronize()` call, 
 If no path is provided, it gets the full path of the calling file.
 ```php
 <?php
-$lock = \ARG\Proc\FileLock::newInstance();
+$lock = \Nyugodt\Proc\FileLock::newInstance();
 $lock->synchronize(function(){
   echo "This function will not be executed by two threads at the same time.\n";
   sleep(3);
